@@ -36,7 +36,8 @@ const sendEmail = async function (formData) {
       Source: process.env.ValidatedEmail, // SES SENDING EMAIL
       ReplyToAddresses: [process.env.ValidatedEmail],
       Destination: {
-        ToAddresses: [process.env.ValidatedEmail], // SES RECEIVING EMAIL
+        ToAddresses: [process.env.ValidatedEmail, formData[email]], // SES RECEIVING EMAIL
+        CcAddresses: 'wangm1@wit.edu',
       },
       Message: {
         Body: {
